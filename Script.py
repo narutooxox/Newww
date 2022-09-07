@@ -14,7 +14,7 @@ def is_enabled(value, default):
 
 class script(object):
     HOME_BUTTONURL_UPDATES = environ.get("HOME_BUTTONURL_UPDATES", 'https://www.google.com/')
-    START_TXT = environ.get("START_TXT", "Please Set Welcome Message To View This")
+    START_TXT = environ.get("START_TXT", " Hello {} 👋🏻 Im Rolex Bot I can share Movies and Series 😁.")
     HELP_TXT = """Hey {}
 Here Is The Help For MY Commands."""
     ABOUT_TXT = """<b><i>🧸 Bot Name : <a href=https://t.me/RolexMoviesOX><b>Rolex Bot</b></a>\n
