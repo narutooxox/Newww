@@ -362,10 +362,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                dulink = await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start={ident}_{file_id}")
+                print(dulink)
+                await query.answer(url=dulink)
                 return
             elif settings['botpm']:
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                dulink = await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start={ident}_{file_id}")
+                print(dulink)
+                await query.answer(url=dulink)
                 return
             else:
                 await client.send_cached_media(
@@ -414,13 +418,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ Add Me To Your Group ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='{script.HOME_BUTTONURL_UPDATES')
+            InlineKeyboardButton('🔻 Click Here To Create One Like This 🔻', callback_data='source')
         ], [
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('Developer 😎', url='https://t.me/JonSnow11'),
+            InlineKeyboardButton('About 😊', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -446,9 +449,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "about":
+        await query.answer("You clicked About Me")
         buttons = [[
-            InlineKeyboardButton('🏠 Home', callback_data='start'),
-         ]]
+            InlineKeyboardButton('Community ❤️‍🔥', url='https://t.me/RolexMoviesOX'),
+            InlineKeyboardButton('Stats ‼️', callback_data='stats')
+        ], [
+            InlineKeyboardButton('«« Main Page »»', callback_data='start'),
+            InlineKeyboardButton('Close❌', callback_data='close_data')
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
@@ -528,9 +536,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "stats":
+        await query.answer("You clicked Status")
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('«« Main Page »»', callback_data='about'),
+            InlineKeyboardButton('🔄 Refrsh One 🔄', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -548,8 +557,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('«« Main Page »»', callback_data='about'),
+            InlineKeyboardButton('🔄 Refrsh One 🔄', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
