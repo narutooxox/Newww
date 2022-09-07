@@ -81,8 +81,8 @@ if SELF_DELETE == "True":
     SELF_DELETE = True
 
     # Download Tutorial Button #
-DOWNLOAD_TEXT_NAME = "📥 HOW TO DOWNLOAD 📥"
-DOWNLOAD_TEXT_URL = "https://www.google.com/"
+DOWNLOAD_TEXT_NAME = environ.get("DOWNLOAD_TEXT_NAME", "🔻How To Download 🔻")
+DOWNLOAD_TEXT_URL = environ.get("DOWNLOAD_TEXT_URL", "https://www.google.com/")
 
    # Custom Caption Under Button #
 CAPTION_BUTTON = "https://www.google.com/"
