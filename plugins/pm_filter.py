@@ -668,7 +668,7 @@ async def auto_filter(client, msg, spoll=False):
         ]
 
     btn.append(
-    [InlineKeyboardButton("🔻 How To Download 🔻", url="https://t.me/RolexMoviesOX/55"),]
+    [InlineKeyboardButton(text=DOWNLOAD_TEXT_NAME,url=DOWNLOAD_TEXT_URL),]
 )
 
     if offset != "":
