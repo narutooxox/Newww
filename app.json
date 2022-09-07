@@ -31,6 +31,10 @@
             "description": "Get this value from https://my.telegram.org",
             "required": true
         },
+        "SHORTENER_API": {
+            "description": "Send me SHAREUs API",
+            "required": false
+        },
         "CHANNELS": {
             "description": "Username or ID of channel or group. Separate multiple IDs by space.",
             "required": false
