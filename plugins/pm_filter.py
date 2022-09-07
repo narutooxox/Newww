@@ -667,11 +667,9 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
 
-    btn.insert(0,
-        [
-            InlineKeyboardButton(text=DOWNLOAD_TEXT_NAME,url=DOWNLOAD_TEXT_URL)
-        ]
-    )
+    btn.append(
+    [InlineKeyboardButton("🔻 How To Download 🔻", url="https://t.me/RolexMoviesOX/55"),]
+)
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
