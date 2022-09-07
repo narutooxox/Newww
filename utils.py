@@ -374,7 +374,7 @@ def humanbytes(size):
     while size > power:
         size /= power
         n += 1
-   return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
+    return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
 
 async def get_shortlink(link):
     https = link.split(":")[0]
@@ -397,6 +397,11 @@ async def get_shortlink(link):
                     return data['shortlink']
                 else:
                     logger.error(f"Error: {data['message']}")
+                    return f'https://api.shareus.in/directLink?token={SHORTENER_API}&link={link}'
+
+    except Exception as e:
+        logger.error(e)
+        return f'https://api.shareus.in/directLink?token={SHORTENER_API}&link={link}'
                     return f'https://api.shareus.in/directLink?token={SHORTENER_API}&link={link}'
 
     except Exception as e:
