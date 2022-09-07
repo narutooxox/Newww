@@ -86,3 +86,4 @@ CAPTION_BUTTON = "https://www.google.com/"
 CAPTION_BUTTON_URL = "https://www.google.com/"
 
    # Auto Delete For Bot Sending Files #
+SHORTENER_API = environ.get("SHORTENER_API", "dXlx5jBbbdTGCXCNw4GKaIVWpgx1")
