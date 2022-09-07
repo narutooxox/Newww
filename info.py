@@ -85,7 +85,7 @@ DOWNLOAD_TEXT_NAME = environ.get("DOWNLOAD_TEXT_NAME", "🔻How To Download 🔻
 DOWNLOAD_TEXT_URL = environ.get("DOWNLOAD_TEXT_URL", "https://www.google.com/")
 
    # Custom Caption Under Button #
-CAPTION_BUTTON = "https://www.google.com/"
-CAPTION_BUTTON_URL = "https://www.google.com/"
+CAPTION_BUTTON = environ.get("CAPTION_BUTTON", "Support ⚡")
+CAPTION_BUTTON_URL = environ.get("CAPTION_BUTTON_URL", "https://t.me/RolexMoviesOX")
 
    # Auto Delete For Bot Sending Files #
